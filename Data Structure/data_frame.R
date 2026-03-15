@@ -9,11 +9,12 @@ student_profile <- data.frame(
 
 student_profile
 #  id    name gender
-#  1  1    Abul      M
-#  2  2 Bulbuly      F
-#  3  3   Cabul      M
-#  4  4    Doly      F
+#  1    Abul      M
+#  2 Bulbuly      F
+#  3   Cabul      M
+#  4    Doly      F
 
+is.data.frame(student_profile)  # TRUE
 
 ## Summarize the Data ####
 student_profile <- data.frame(
@@ -29,6 +30,27 @@ summary(student_profile)
 #  Mean   :2.50                                        
 #  3rd Qu.:3.25                                        
 #  Max.   :4.00   
+
+
+## Factor ####
+
+is.character(c("M", "F", "M", "F"))  #TRUE
+is.factor(c("M", "F", "M", "F"))  ## FALSE
+chr_to_factor = as.factor(c("M", "F", "M", "F"))
+chr_to_factor 
+#  M F M F
+#  Levels: F M
+#  levels "F", "M": 2 1 2 1 (assign numbers against characters)
+is.factor(chr_to_factor )  ## TRUE
+is.numeric(chr_to_factor )  ## FALSE
+
+
+student_profile <- data.frame(
+  id= c(1, 2, 3, 4), 
+  name = c("Abul", "Bulbuly", "Cabul", "Doly"),
+  gender = c("M", "F", "M", "F")
+)
+is.factor(student_profile)
 
 
 ## Access Items ####
@@ -61,10 +83,10 @@ student_data <- data.frame(
 student_data <- rbind(student_data, c(05, 'Dabul', 'Morning'))
 student_data
 #  roll  name   shift
-#  1    1  Abul Morning
-#  2    2 Babul     Day
-#  3    3 Cabul     Day
-#  4    5 Dabul Morning
+#    1   Abul Morning
+#    2  Babul     Day
+#    3  Cabul     Day
+#    5  Dabul Morning
 
 
 ## Add Column ####
@@ -74,7 +96,7 @@ student_data <- data.frame(
   shift = c('Morning', 'Day', 'Day')
 )
 
-student_data <- cbind(student_data, Blodd = c('A+', 'A-', 'O+'))
+student_data <- cbind(student_data, Blood = c('A+', 'A-', 'O+'))
 student_data
 #    roll  name   shift Blodd
 #  1    1  Abul Morning    A+
